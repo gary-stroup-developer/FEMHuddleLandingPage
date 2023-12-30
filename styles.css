@@ -1,0 +1,205 @@
+:root {
+    --Mobile: 375px;
+    --Desktop: 1440px;
+
+    --Violet: hsl(257, 40%, 49%);
+    --SoftMagenta: hsl(300, 69%, 71%);
+    --White: #FFF;
+    --attribution:hsl(228, 45%, 44%);
+
+    --ff-Heading: 'Poppins', sans-serif;
+    --ff-Body: 'Open Sans', sans-serif;
+
+    --fw-400: 400;
+    --fw-600: 600;
+
+    --fs-header-mobile: 1.5rem;
+    --fs-content-mobile: 0.75rem;
+    --fs-header-desktop: 3rem;
+    --fs-content-desktop: 1.25rem;
+
+    --btn-padding-mobile: 1rem 2rem;
+    --btn-padding-desktop: 1.5rem;
+    --btn-width-mobile: calc(100% - 3.5rem);
+    --btn-width-desktop: calc(50% - 1rem);
+
+    --icons-social-dimensions: 1.5rem;
+    --icons-social-dimensions-mobile: 1rem;
+
+    --icon-margin-mobile: 1rem;
+    --icon-margin-desktop: 1.5rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--Violet);
+    color: var(--White);
+    font-family: var(--ff-Body);
+    width: 100dvw;
+    height: 100dvh;
+}
+/* the outermost div whose only job is to pad the content from the edges of the window */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wrapper, .main-content__materialBox-hookline {
+    padding: 3rem 1rem;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+}
+
+.company-logo {
+    margin-bottom: 3rem;
+}
+
+.hero {
+    width: calc(100% - 2rem);
+    margin: auto;
+}
+
+.hero > img {
+    width: 100%;
+}
+
+.main-content__materialBox-hookline {
+    text-align: center;
+}
+
+.header {
+    font-family: var(--ff-Heading);
+    font-size: var(--fs-header-mobile);
+    font-weight: var(--fw-600);
+}
+
+.content {
+    font-size: var(--fs-content-mobile);
+    padding-bottom: 1.5rem;
+}
+
+.btn {
+    text-align: center;
+    font-weight: var(--fw-600);
+    padding: var(--btn-padding-mobile);
+    border-radius: 3rem;
+    background-color: var(--SoftMagenta);
+    width: var(--btn-width-mobile);
+    margin-inline: auto;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.footer__socials {
+    display: flex;
+    margin-block: 1rem;
+}
+
+.socialMediaLogo {
+    border: 2px solid var(--White);
+    border-radius: 50%;
+    padding: 1rem;
+    margin-inline: var(--icon-margin-mobile);
+}
+
+.socialMediaLogo > svg {
+    width: var(--icons-social-dimensions-mobile);
+    height: var(--icons-social-dimensions-mobile);
+    fill: var(--White); 
+}
+
+.socialMediaLogo:hover{
+    svg{fill: var(--SoftMagenta);}
+    border-color: var(--SoftMagenta);
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    align-self: center;
+    color: var(--White);
+    margin-top: 1rem;
+}
+
+.attribution a {
+    color: var(--White);
+}
+
+@media(min-width: 800px){
+    .wrapper {
+        padding: 3rem;
+    }
+
+    .box {
+        flex: 1;
+    }
+
+    .main-content {
+        margin: auto;
+        max-width: var(--Desktop);
+    }
+
+    .main-content__materialBox {
+        width: 100%;
+        display: flex;
+    }
+
+    .main-content__materialBox-hookline {
+        text-align:left;
+        padding-inline: 6rem;
+    }
+
+    .header {
+        font-size: var(--fs-header-desktop);
+    }
+
+    .content {
+        margin-top: 2rem;
+        font-size: var(--fs-content-desktop);
+    }
+
+    .hero>img {
+        width: 95%;
+    }
+
+    .btn {
+        padding: var(--btn-padding-desktop);
+        width: var(--btn-width-desktop);
+        margin: 0.75rem 0;
+    }
+
+    .footer {
+        margin-top: 2.5rem;
+        align-items: end;
+    }
+
+    .socialMediaLogo {
+        margin-inline: var(--icon-margin-desktop);
+    }
+
+    .socialMediaLogo>svg {
+        width: var(--icons-social-dimensions);
+        height: var(--icons-social-dimensions);
+    }
+}
+
