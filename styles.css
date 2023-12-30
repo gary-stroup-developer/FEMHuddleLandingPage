@@ -14,20 +14,18 @@
     --fw-600: 600;
 
     --fs-header-mobile: 1.5rem;
-    --fs-content-mobile: 0.75rem;
     --fs-header-desktop: 3rem;
-    --fs-content-desktop: 1.25rem;
+    --fs-content: 1.5rem;
 
     --btn-padding-mobile: 1rem 2rem;
     --btn-padding-desktop: 1.5rem;
-    --btn-width-mobile: calc(100% - 3.5rem);
-    --btn-width-desktop: calc(50% - 1rem);
-
-    --icons-social-dimensions: 1.5rem;
-    --icons-social-dimensions-mobile: 1rem;
-
-    --icon-margin-mobile: 1rem;
-    --icon-margin-desktop: 1.5rem;
+    --btn-width-mobile-min: 50%;
+    --btn-width-mobile-max: 23.44rem;
+    --btn-width-desktop: calc(90% - 10rem);
+    
+    --icons-social-dimensions: 1rem;
+    --icon-margin: 1rem;
+    
 }
 
 * {
@@ -40,9 +38,8 @@ body {
     background-color: var(--Violet);
     color: var(--White);
     font-family: var(--ff-Body);
-    width: 100dvw;
-    height: 100dvh;
 }
+
 /* the outermost div whose only job is to pad the content from the edges of the window */
 .wrapper {
     display: flex;
@@ -59,11 +56,13 @@ body {
 }
 
 .absolute {
+    transform: rotateY(180deg);
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
-    height: 100%;
+    z-index: -5;
+    height: auto;
+    width: 100%;
 }
 
 .company-logo {
@@ -72,11 +71,12 @@ body {
 
 .hero {
     width: calc(100% - 2rem);
-    margin: auto;
+    margin-inline: auto;
 }
 
 .hero > img {
     width: 100%;
+    height: auto;
 }
 
 .main-content__materialBox-hookline {
@@ -87,21 +87,33 @@ body {
     font-family: var(--ff-Heading);
     font-size: var(--fs-header-mobile);
     font-weight: var(--fw-600);
+    margin-inline: auto;
 }
 
 .content {
-    font-size: var(--fs-content-mobile);
+    font-size: var(--fs-content);
     padding-bottom: 1.5rem;
+    margin-inline: auto;
+    margin-top: 2rem;
+    width: var(--btn-width-mobile);
 }
 
 .btn {
     text-align: center;
+    font-size: var(--fs-content);
     font-weight: var(--fw-600);
     padding: var(--btn-padding-mobile);
     border-radius: 3rem;
+    background-color: var(--White);
+    color: var(--SoftMagenta);
+    min-width: var(--btn-width-mobile-min);
+    max-width: var(--btn-width-mobile-max);
+    margin: 1rem auto 0;
+}
+
+.btn:hover {
+    color: var(--White);
     background-color: var(--SoftMagenta);
-    width: var(--btn-width-mobile);
-    margin-inline: auto;
 }
 
 .footer {
@@ -119,18 +131,20 @@ body {
     border: 2px solid var(--White);
     border-radius: 50%;
     padding: 1rem;
-    margin-inline: var(--icon-margin-mobile);
+    margin-inline: var(--icon-margin);
 }
 
 .socialMediaLogo > svg {
-    width: var(--icons-social-dimensions-mobile);
-    height: var(--icons-social-dimensions-mobile);
+    width: var(--icons-social-dimensions);
+    height: var(--icons-social-dimensions);
     fill: var(--White); 
 }
 
-.socialMediaLogo:hover{
-    svg{fill: var(--SoftMagenta);}
+.socialMediaLogo:hover {
     border-color: var(--SoftMagenta);
+    svg {
+        fill: var(--SoftMagenta);
+    }
 }
 
 .attribution {
@@ -145,9 +159,34 @@ body {
     color: var(--White);
 }
 
-@media(min-width: 800px){
+@media(min-width: 600px){
+
+    .header {
+        font-size: var(--fs-header-desktop);
+        max-width: 40rem;
+    }
+
+    .content {
+        width: 100%;
+        max-width: 80%;
+    }
+
+    .hero {
+        width: 100%;
+    }
+
+}
+
+@media(min-width: 1000px){
+
     .wrapper {
         padding: 3rem;
+        
+    }
+
+    .absolute {
+        transform: rotateY(0deg);
+        width: 100%;
     }
 
     .box {
@@ -165,41 +204,23 @@ body {
     }
 
     .main-content__materialBox-hookline {
-        text-align:left;
-        padding-inline: 6rem;
-    }
-
-    .header {
-        font-size: var(--fs-header-desktop);
+        text-align: left;
+        padding-inline:6rem;
     }
 
     .content {
-        margin-top: 2rem;
-        font-size: var(--fs-content-desktop);
-    }
-
-    .hero>img {
-        width: 95%;
+        margin-inline: unset;
     }
 
     .btn {
         padding: var(--btn-padding-desktop);
-        width: var(--btn-width-desktop);
-        margin: 0.75rem 0;
+        max-width: 27rem;
+        margin-inline: unset;
     }
 
     .footer {
         margin-top: 2.5rem;
         align-items: end;
-    }
-
-    .socialMediaLogo {
-        margin-inline: var(--icon-margin-desktop);
-    }
-
-    .socialMediaLogo>svg {
-        width: var(--icons-social-dimensions);
-        height: var(--icons-social-dimensions);
     }
 }
 
