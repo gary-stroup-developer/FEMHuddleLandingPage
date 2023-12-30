@@ -24,8 +24,7 @@
     --btn-width-desktop: calc(90% - 10rem);
     
     --icons-social-dimensions: 1rem;
-    --icon-margin: 1rem;
-    
+    --icon-margin: 1rem;  
 }
 
 * {
